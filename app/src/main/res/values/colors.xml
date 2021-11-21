@@ -4,6 +4,10 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#6200AA</color>
 
+    <color name="VUMeterBg">#FF424242</color>
+    <color name="bottomVUMeterBarColor">#FF0000</color>
+
+
     <color name="gray">#d6d6d6</color>
     <color name="light_gray">#e6e6e6</color>
 

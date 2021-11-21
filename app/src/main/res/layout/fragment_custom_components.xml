@@ -9,52 +9,56 @@
     android:padding="24dp"
     >
 
-    <TextView
-        android:id="@+id/textView2"
+    <com.phinnovation.quizplayer.presentation.components.VUMeterComponent
+        android:id="@+id/vuMeter"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
+        android:layout_height="100dp"
+        app:maxValue="100"
+        app:minValue="0"
+        app:initialValue="100"
+        app:bgColor="@color/VUMeterBg"
+        app:barActiveColor="@color/colorPrimary"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="24dp"
-        tools:text="Rotary Knob Value" />
-
+        />
     <com.phinnovation.quizplayer.presentation.components.RotaryKnobComponent
         android:id="@+id/knob"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="5dp"
-        app:initialValue="50"
+        android:layout_marginTop="24dp"
+        app:initialValue="100"
         app:knobDrawable="@drawable/ic_rotary_knob"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/vuMeter"
         app:maxValue="100"
         app:minValue="0"
         />
+    <com.phinnovation.quizplayer.presentation.components.VUMeterComponent
+        android:id="@+id/vuMeter2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:maxValue="100"
+        app:minValue="0"
+        app:initialValue="0"
+        app:bgColor="@color/VUMeterBg"
+        app:barActiveColor="@color/bottomVUMeterBarColor"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/knob2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/knob"
+        />
+
     <com.phinnovation.quizplayer.presentation.components.RotaryKnobComponent
         android:id="@+id/knob2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="5dp"
-        app:initialValue="50"
-        app:knobDrawable="@drawable/ic_rotary_knob"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/knob3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/knob"
-        app:maxValue="100"
-        app:minValue="0" />
-
-    <com.phinnovation.quizplayer.presentation.components.RotaryKnobComponent
-        android:id="@+id/knob3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="16dp"
         android:layout_marginStart="24dp"
-        app:initialValue="50"
+        app:initialValue="0"
         app:knobDrawable="@drawable/ic_rotary_knob"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/knob2"
+        app:layout_constraintStart_toEndOf="@id/vuMeter2"
         app:layout_constraintTop_toBottomOf="@+id/knob"
         app:maxValue="100"
         app:minValue="0" />

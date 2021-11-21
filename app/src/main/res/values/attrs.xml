@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr name="initialValue" format="integer" />
+    <attr name="minValue" format="integer" />
+    <attr name="maxValue" format="integer" />
+
     <declare-styleable name="RotaryKnobComponent">
-        <attr name="minValue" format="integer" />
-        <attr name="maxValue" format="integer" />
-        <attr name="initialValue" format="integer" />
+        <attr name="minValue"/>
+        <attr name="maxValue"/>
+        <attr name="initialValue"/>
         <attr name="knobDrawable" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="VUMeterComponent">
+        <!--2-->
+        <attr name="bgColor" format="color" />
+        <attr name="barInactiveColor" format="color" />
+        <attr name="barActiveColor" format="color" />
+        <attr name="barWidth" format="float" />
+        <attr name="barSeparatorWidth" format="float" />
+        <attr name="padding" format="float" />
+        <attr name="minValue"/>
+        <attr name="maxValue"/>
+        <attr name="initialValue"/>
     </declare-styleable>
 </resources>
