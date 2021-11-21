@@ -70,4 +70,8 @@
             app:exitAnim="@android:anim/slide_out_right"
             app:popUpTo="@id/testerListFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/customComponentsFragment"
+        android:name="com.phinnovation.quizplayer.presentation.screens.customcomponents.CustomComponentsFragment"
+        android:label="CustomComponentsFragment" />
 </navigation>

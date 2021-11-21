@@ -16,6 +16,10 @@
         android:icon="@android:drawable/ic_media_play"
         android:title="@string/menu_tester"
         />
+    <item
+        android:id="@+id/customComponentsFragment"
+        android:icon="@android:drawable/ic_menu_gallery"
+        android:title="@string/menu_custom_components"
+        />
   </group>
-
 </menu>

@@ -39,4 +39,6 @@
     <string name="test_ended">Finish Test</string>
     <string name="answer_is_correct">Correct Answer!</string>
     <string name="answer_is_wrong">Wrong Answer!</string>
+    <string name="rotary_knob_description">Rotary Knob</string>
+    <string name="menu_custom_components">Custom Components</string>
 </resources>
