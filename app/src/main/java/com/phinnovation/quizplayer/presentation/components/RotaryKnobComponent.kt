@@ -5,6 +5,7 @@ import android.content.Context
 import android.graphics.Matrix
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.util.Log
 import android.view.GestureDetector
 import android.view.LayoutInflater
 import android.view.MotionEvent
@@ -13,6 +14,9 @@ import androidx.core.view.GestureDetectorCompat
 import com.phinnovation.quizplayer.R
 import kotlinx.android.synthetic.main.component_rotary_knob.view.*
 import kotlin.math.atan2
+import kotlin.math.round
+
+typealias Callback = (Int) -> Unit
 
 class RotaryKnobComponent
     @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -23,9 +27,10 @@ class RotaryKnobComponent
     private var minValue = 0
     private var knobDrawable: Drawable? = null
     private var divider = 300f / (maxValue - minValue)
-    private var value = 50
+    var value = 50
 
-    var listener: RotaryKnobListener? = null
+    var callback: Callback? = null
+//    var listener: RotaryKnobListener? = null
 
     init {
         this.maxValue = maxValue + 1
@@ -46,15 +51,16 @@ class RotaryKnobComponent
                 value = getInt(R.styleable.RotaryKnobComponent_initialValue, 50)
                 knobDrawable = getDrawable(R.styleable.RotaryKnobComponent_knobDrawable)
                 knobImageView.setImageDrawable(knobDrawable)
+
+                //fix initial state from -150 degrees to 150
+                var normalizedAngle = round((value - minValue).toFloat() / (maxValue - minValue) * 300) - 150
+
+                setKnobPosition(normalizedAngle)
             } finally {
                 recycle()
             }
         }
         gestureDetector = GestureDetectorCompat(context, this)
-    }
-
-    interface RotaryKnobListener {
-        fun onRotate(value: Int)
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
@@ -92,7 +98,9 @@ class RotaryKnobComponent
             // range to 0 - 300
             val valueRangeDegrees = rotationDegrees + 150
             value = ((valueRangeDegrees / divider) + minValue).toInt()
-            if (listener != null) listener!!.onRotate(value)
+            callback?.apply {
+                this(value)
+            }
         }
         return true
     }
@@ -110,6 +118,8 @@ class RotaryKnobComponent
         var angle = -(Math.toDegrees(atan2(py, px)))
             .toFloat() + 90
         if (angle > 180) angle -= 360
+
+        Log.d("Fotis","Angle: $angle")
         return angle
     }
 }
