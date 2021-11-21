@@ -32,6 +32,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    flavorDimensions 'client'
+    productFlavors {
+        'default' {
+            dimension 'client'
+        }
+        green {
+            dimension 'client'
+            applicationId 'com.phinnovation.quizplayer.presentation.application.GreenQuizPlayer'
+            applicationIdSuffix '.green'
+        }
+    }
+    sourceSets {
+        green {
+            res {
+                srcDirs 'src/green/res'
+            }
+        }
+    }
 }
 
 dependencies {

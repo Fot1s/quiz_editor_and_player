@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#66FF66</color>
+    <color name="colorPrimaryDark">#66AA66</color>
+    <color name="colorAccent">#339933</color>
+
+    <color name="VUMeterBg">#FF828282</color>
+    <color name="bottomVUMeterBarColor">#00FF00</color>
+
+    <color name="gray">#d6d6d6</color>
+    <color name="light_gray">#e6e6e6</color>
+
+</resources>
