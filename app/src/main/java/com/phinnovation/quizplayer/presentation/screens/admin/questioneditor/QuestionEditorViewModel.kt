@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.phinnovation.core.domain.Question
 import com.phinnovation.core.domain.QuestionType
 import com.phinnovation.quizplayer.framework.Interactors
-import com.phinnovation.quizplayer.framework.QuizPlayerViewModel
+import com.phinnovation.quizplayer.presentation.application.QuizPlayerViewModel
 import com.phinnovation.quizplayer.presentation.utils.Event
 import kotlinx.coroutines.launch
 

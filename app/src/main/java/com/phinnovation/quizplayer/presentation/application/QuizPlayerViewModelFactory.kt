@@ -1,8 +1,9 @@
-package com.phinnovation.quizplayer.framework
+package com.phinnovation.quizplayer.presentation.application
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.phinnovation.quizplayer.framework.Interactors
 import javax.inject.Inject
 
 class QuizPlayerViewModelFactory @Inject constructor(
