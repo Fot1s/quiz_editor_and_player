@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+  <group android:checkableBehavior="single">
+    <item
+        android:id="@+id/homeFragment"
+        android:title="@string/menu_home"/>
+    <item
+        android:id="@+id/adminListFragment"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="@string/menu_admin"/>
+    <item
+        android:id="@+id/testerListFragment"
+        android:icon="@android:drawable/ic_media_play"
+        android:title="@string/menu_tester"
+        />
+    <item
+        android:id="@+id/customComponentsFragment"
+        android:icon="@android:drawable/ic_menu_gallery"
+        android:title="@string/menu_custom_components"
+        />
+    <item
+        android:id="@+id/extraFragment"
+        android:icon="@android:drawable/ic_lock_idle_lock"
+        android:title="@string/extra"
+        />
+
+  </group>
+</menu>

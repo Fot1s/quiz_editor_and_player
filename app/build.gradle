@@ -42,11 +42,24 @@ android {
             applicationId 'com.phinnovation.quizplayer.presentation.application.GreenQuizPlayer'
             applicationIdSuffix '.green'
         }
+        'extra' {
+            dimension 'client'
+            applicationId 'com.phinnovation.quizplayer.presentation.application.ExtraQuizPlayer'
+            applicationIdSuffix 'extra'
+        }
     }
     sourceSets {
         green {
             res {
                 srcDirs 'src/green/res'
+            }
+        }
+        extra {
+            java {
+                srcDirs 'src/extra/java'
+            }
+            res {
+                srcDirs 'src/extra/res'
             }
         }
     }
