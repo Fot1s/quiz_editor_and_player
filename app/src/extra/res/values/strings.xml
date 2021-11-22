@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Extra Player</string>
     <string name="extra_functionality">Extra Functionality!</string>
     <string name="extra">Extra</string>
 </resources>
