@@ -2,6 +2,8 @@
 
 ----------
 
+![App Intro Video](readme-images/ezgif-app-video.gif)
+
 ## Notes on Branch: White label with Custom UI
 
 ### Custom UI Components
@@ -31,7 +33,7 @@ in order to display and connect these 2 components.
 The VUMeter at the top of the screen responds to the large Rotary knob bellow,
 while, the second smaller VUMeter is connected to the knob on the right to it.
 
-- screen shot of main app with meters -
+![Main App - custom components](readme-images/default.jpg)
 
 ### White Labeling - Flavors and dimensions
 
@@ -45,18 +47,29 @@ A flavorDimensions 'client' was added with the following productFlavors:
             - build apk: app-default-debug.apk
             - sources in: src/main/ java & res
 
+![Main App - Default](readme-images/default.jpg)
+
 2.  green - The original (purple based) app dressed in Green.
             - package: com.phinnovation.quizplayer.presentation.application.GreenQuizPlayer
             - build apk: app-green-debug.apk
             - overriding resources in src/green/res
 
-2.  extra - The original (purple based) app with added functionality (an extra screen).
+![Main App - Green Flavor](readme-images/green.jpg)
+
+3.  extra - The original (purple based) app with added functionality (an extra screen).
             - package: com.phinnovation.quizplayer.presentation.application.ExtraQuizPlayer
             - build apk: app-extra-debug.apk
             - overriding resources (new menu with added extra screen) in src/extra/res
             - new fragment/screen source in src/extra/java
 
+![Main App - Green Flavor](readme-images/extra.jpg)
 
+Building all targets now results in 3 debug and 3 release apps each having their own
+package and application name and can thus be installed next to each other, on the same device:
+
+![Main App - Green Flavor](readme-images/apps-launcher.jpg)
+
+Off course in a real project the app icons would also be overridden / different per app.
 
 ----------
 
