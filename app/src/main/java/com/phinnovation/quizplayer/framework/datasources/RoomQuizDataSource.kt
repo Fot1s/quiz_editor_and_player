@@ -7,17 +7,7 @@ import com.phinnovation.quizplayer.framework.database.QuizDao
 import com.phinnovation.quizplayer.framework.database.QuizEntity
 import com.phinnovation.quizplayer.framework.database.QuizPlayerDatabase
 
-class RoomQuizDataSource(val context: Context, quizDao: QuizDao? = null) : QuizDataSource {
-
-//    private val quizDao = QuizPlayerDatabase.getInstance(context).quizDao()
-
-    private val quizDao: QuizDao = {
-        if (quizDao != null) {
-            quizDao
-        } else {
-            QuizPlayerDatabase.getInstance(context).quizDao()
-        }
-    }()
+class RoomQuizDataSource(val context: Context, val quizDao: QuizDao) : QuizDataSource {
 
     override suspend fun add(quiz: Quiz) {
         quizDao.addQuiz(

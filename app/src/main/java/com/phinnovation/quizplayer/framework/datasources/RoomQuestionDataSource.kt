@@ -1,4 +1,4 @@
-package com.phinnovation.quizplayer.framework
+package com.phinnovation.quizplayer.framework.datasources
 
 import android.content.Context
 import com.phinnovation.core.data.QuestionDataSource
@@ -6,12 +6,8 @@ import com.phinnovation.core.domain.Question
 import com.phinnovation.core.domain.Quiz
 import com.phinnovation.quizplayer.framework.database.QuestionDao
 import com.phinnovation.quizplayer.framework.database.QuestionEntity
-import com.phinnovation.quizplayer.framework.database.QuizPlayerDatabase
 
-class RoomQuestionDataSource(val context: Context, qDao: QuestionDao? = null) : QuestionDataSource {
-
-    private val questionDao: QuestionDao =
-        qDao ?: QuizPlayerDatabase.getInstance(context).questionDao()
+class RoomQuestionDataSource(val context: Context, val questionDao: QuestionDao) : QuestionDataSource {
 
     override suspend fun add(quiz: Quiz, question: Question) {
         questionDao.addQuestion(
@@ -79,23 +75,19 @@ class RoomQuestionDataSource(val context: Context, qDao: QuestionDao? = null) : 
         )
     }
 
-
-    suspend fun readAll(): List<Question> {
-        return questionDao.getAllQuestions().map {
-            Question(
-                id = it.id,
-                title = it.title,
-                description = it.description,
-                type = it.type,
-                choiceTitle1 = it.choiceTitle1,
-                choiceTitle2 = it.choiceTitle2,
-                choiceTitle3 = it.choiceTitle3,
-                choiceTitle4 = it.choiceTitle4,
-                correctAnswer = it.correctAnswer,
-            )
-        }
-    }
-
-
-
+//    suspend fun readAll(): List<Question> {
+//        return questionDao.getAllQuestions().map {
+//            Question(
+//                id = it.id,
+//                title = it.title,
+//                description = it.description,
+//                type = it.type,
+//                choiceTitle1 = it.choiceTitle1,
+//                choiceTitle2 = it.choiceTitle2,
+//                choiceTitle3 = it.choiceTitle3,
+//                choiceTitle4 = it.choiceTitle4,
+//                correctAnswer = it.correctAnswer,
+//            )
+//        }
+//    }
 }

@@ -13,11 +13,12 @@ import com.phinnovation.core.domain.Quiz
 import com.phinnovation.core.domain.QuizState
 import com.phinnovation.quizplayer.framework.InMemoryOpenQuestionDataSource
 import com.phinnovation.quizplayer.framework.InMemoryOpenQuizDataSource
-import com.phinnovation.quizplayer.framework.RoomQuestionDataSource
+import com.phinnovation.quizplayer.framework.datasources.RoomQuestionDataSource
 import com.phinnovation.quizplayer.framework.RoomQuizDataSource
 import com.phinnovation.quizplayer.framework.database.QuestionDao
 import com.phinnovation.quizplayer.framework.database.QuizDao
 import com.phinnovation.quizplayer.framework.database.QuizPlayerDatabase
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -56,12 +57,14 @@ class RepositoriesInstrumentedTest {
 
         questionRepository = QuestionRepository(
             RoomQuestionDataSource(InstrumentationRegistry.getInstrumentation().targetContext,questionDao),
-            InMemoryOpenQuestionDataSource()
+            InMemoryOpenQuestionDataSource(),
+            Dispatchers.IO
         )
 
         quizRepository = QuizRepository(
             RoomQuizDataSource(InstrumentationRegistry.getInstrumentation().targetContext,quizDao),
-            InMemoryOpenQuizDataSource()
+            InMemoryOpenQuizDataSource(),
+            Dispatchers.IO
         )
 
     }
