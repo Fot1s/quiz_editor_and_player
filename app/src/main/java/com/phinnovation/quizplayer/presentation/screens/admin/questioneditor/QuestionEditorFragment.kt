@@ -104,7 +104,7 @@ class QuestionEditorFragment : Fragment () {
 
         viewModel.navigateUpEvent.observe(viewLifecycleOwner, Observer {
             it.getContentIfNotHandled()?.let {
-                mainActivityDelegate.continueWithBack() ;
+                mainActivityDelegate.continueWithBack()
             }
         })
 
@@ -122,7 +122,7 @@ class QuestionEditorFragment : Fragment () {
         when (item.itemId) {
             R.id.action_delete_question -> {
                 viewModel.deleteQuestionAndNavigateUp()
-                return true;
+                return true
             }
             else -> {
                 return super.onOptionsItemSelected(item)
