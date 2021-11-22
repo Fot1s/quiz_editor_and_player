@@ -1,6 +1,66 @@
 # quiz_editor_and_player
 
-## Research / Exercise on Android Jetpack components and CLEAN architecture
+----------
+
+## Notes on Branch: White label with Custom UI
+
+### Custom UI Components
+
+This branch was added to show case the use of 2 custom UI components found in:
+app/com/phinnovation/quizplayer/presentation/components/
+
+The first, RotaryKnobComponent, is adapted from the work of Oren Geva
+(https://www.freecodecamp.org/news/how-to-create-an-android-rotary-knob-using-kotlin/),
+with some refactoring to allow for the Knob to fit its container view and do not
+depend on hardcoded dimens values. The knob value interface based callback was also replaced
+by a closure.
+
+This component is extending a FrameLayout in order to allow for a rotatable,
+ImageView to be placed inside it.
+
+The second component, VUMeterComponent was implemented from scratch and show cases a lower level
+custom component creation, via extending View this time.
+
+Here, all measurement and drawing is done in code via canvas paint calls.
+
+An additional screen/fragment was added to the application
+(app/com/phinnovation/quizplayer/presentation/screens/customcomponents/CustomComponentFragment)
+
+in order to display and connect these 2 components.
+
+The VUMeter at the top of the screen responds to the large Rotary knob bellow,
+while, the second smaller VUMeter is connected to the knob on the right to it.
+
+- screen shot of main app with meters -
+
+### White Labeling - Flavors and dimensions
+
+To show case multiple apps per project (White Labeling) some modifications were made to the app's
+build.grandle
+
+A flavorDimensions 'client' was added with the following productFlavors:
+
+1.  default - The original (purple based) Quiz Editor and Player App.
+            - package: com.phinnovation.quizplayer.presentation.application.QuizPlayerApplication
+            - build apk: app-default-debug.apk
+            - sources in: src/main/ java & res
+
+2.  green - The original (purple based) app dressed in Green.
+            - package: com.phinnovation.quizplayer.presentation.application.GreenQuizPlayer
+            - build apk: app-green-debug.apk
+            - overriding resources in src/green/res
+
+2.  extra - The original (purple based) app with added functionality (an extra screen).
+            - package: com.phinnovation.quizplayer.presentation.application.ExtraQuizPlayer
+            - build apk: app-extra-debug.apk
+            - overriding resources (new menu with added extra screen) in src/extra/res
+            - new fragment/screen source in src/extra/java
+
+
+
+----------
+
+## Research / Prototype on Android Jetpack components and CLEAN architecture
 
 A Quiz Application that allows for quiz creation (containing any number of questions) and testing.
 
